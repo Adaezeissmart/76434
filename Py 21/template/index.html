@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style = "text-align: center;"> Registration Form</h2>
+    {% if form %}
+        {% for message in form.name.errors %}
+            <div>{{message}}</div>
+        {% endfor%}
+    {%end if %}
+    <form action = "/success" method = "POST">
+        {% if form %}
+            {{ form.hidden_tag()}}
+
+        <div style="font-size: 18px; font-weight: bold; margin-left: 150px;" >
+            {{ form.name.label}}
+            {{ form.name}}<br>
+            <br>
+            {{ form.Gender.label }}
+            {{ form.Gender }}
+            <br>
+            {{ form.Address.label }}
+            {{ form.Address }}
+            <br>
+            {{ form.language.label }}
+            {{ form.language }}
+            <br><br>
+            {{ form.submit }}
+        </div>
+    </form>
+</body>
+</html>
